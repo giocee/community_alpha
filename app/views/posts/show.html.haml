@@ -19,9 +19,6 @@
 
 %article
 %h3 Comments
-- @comments.each do |comment|
-  %tr
-    %td= comment.user_name
-    %td= comment.body
-    %td= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }
-= render partial: 'comments/form', locals: { comment: @comment }
+= form_for [@post, @post.comments.new] do |f|
+  = f.text_area :body
+  = f.submit
