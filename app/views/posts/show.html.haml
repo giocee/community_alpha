@@ -20,5 +20,8 @@
 %article
 %h3 Comments
 = form_for [@post, @post.comments.new] do |f|
+  %p Author:
+  = f.text_area :author
+  %p Comment:
   = f.text_area :body
   = f.submit
